@@ -11,7 +11,7 @@ Here’s a quick guide on how to create a Augmented Reality for iOS using iOS SD
 
 ## Prerequisites
 - Use Xcode 10.1 and later and Mac OS X 10.14.1 and later
-- [Conentstack](https://app.contentstack.com)  account
+- [Contenstack](https://app.contentstack.com)  account
 
 ## Installation and Setup
 
