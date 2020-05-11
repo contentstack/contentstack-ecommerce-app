@@ -22,7 +22,7 @@ enum ProductListSence
     {
         let categoryID: String?
         let productList: [String]?
-        let productQuery = APIManger.stack.contentType(withName: "product").query()
+        let productQuery = APIManger.stack.contentType(uid: "product").entry().query()
         let fetchRequest = Product.productFetchRequest()
     }
     struct Response
@@ -35,3 +35,4 @@ enum ProductListSence
     }
   }
 }
+import ContentstackSwift

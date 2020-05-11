@@ -1,16 +1,16 @@
 PODS:
-  - Contentstack (3.4.0)
+  - ContentstackSwift (1.0.0)
 
 DEPENDENCIES:
-  - Contentstack
+  - ContentstackSwift (from `/Users/uttamukkoji/Documents/iOS/contentstack-swift/ContentstackSwift.podspec`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Contentstack
+EXTERNAL SOURCES:
+  ContentstackSwift:
+    :path: "/Users/uttamukkoji/Documents/iOS/contentstack-swift/ContentstackSwift.podspec"
 
 SPEC CHECKSUMS:
-  Contentstack: e270cfa6b6ddae4fa67adf06eca68190cd7aa768
+  ContentstackSwift: ca9b2f214a8599b693a544a5f646a1319fc26ad1
 
-PODFILE CHECKSUM: 28c63791edff272c2358e0a882b6502f6ec2efa3
+PODFILE CHECKSUM: aa2e1e9dc6b0d87307e4f3812dad7308810da71d
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.9.1

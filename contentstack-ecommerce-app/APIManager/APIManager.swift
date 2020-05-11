@@ -7,21 +7,15 @@
 //
 
 import UIKit
-import Contentstack
+import ContentstackSwift
 class StackConfig {
     static var APIKey           = "blt11467371f44f3c8c"
-    static var AccessToken      = "blt1d60be58e6053763"
+    static var DeliveryToken      = "blt1d60be58e6053763"
     static var EnvironmentName  = "development"
-    static var _config : Config {
-        get {
-            let config = Config()
-//            config.host = "stag-cdn.contentstack.io"
-            return config
-        }
-    }
+    
 }
 
 enum APIManger {
-    static var stack : Stack = Contentstack.stack(withAPIKey: StackConfig.APIKey, accessToken: StackConfig.AccessToken, environmentName: StackConfig.EnvironmentName, config:StackConfig._config)
+    static var stack : Stack = Contentstack.stack(apiKey: StackConfig.APIKey, deliveryToken: StackConfig.DeliveryToken, environment: StackConfig.EnvironmentName)
     
 }

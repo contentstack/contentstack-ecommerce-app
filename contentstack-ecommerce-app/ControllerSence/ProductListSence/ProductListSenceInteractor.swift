@@ -12,7 +12,7 @@
 
 import UIKit
 import CoreData
-import Contentstack
+import ContentstackSwift
 protocol ProductListSenceBusinessLogic
 {
     func getProductsList(request: ProductListSence.Products.Request)
@@ -40,7 +40,8 @@ class ProductListSenceInteractor: ProductListSenceBusinessLogic, ProductListSenc
     func getProductsList(request: ProductListSence.Products.Request) {
         worker = ProductListSenceWorker()
         worker?.getProduct(request: request, onCompletion: { (queryResult, error) -> (Void) in
-            guard let qResult = queryResult, let result = qResult.getResult() as? [Entry] else {return}
+            guard let qResult = queryResult else {return}
+            let result = qResult.items
             let backgroundContext = AppDelegate.shared.persistentContainer.newBackgroundContext()
             
             for entry in result {
@@ -48,21 +49,18 @@ class ProductListSenceInteractor: ProductListSenceBusinessLogic, ProductListSenc
                 let product = backgroundContext.findOrCreate(Product.self, predicate: predicate)
                 product.uid = entry.uid
                 product.title = entry.title
-                product.desc = entry.object(forKey: "description") as? String
+                product.desc = entry.fields?["description"] as? String
                 product.categories = request.categoryID
-                if let relatedProduct = entry.object(forKey: "related_products") as? [String] {
+                if let relatedProduct = entry.fields?["related_products"] as? [String] {
                     product.relatedProducts = relatedProduct
                 }
-                if let featuredImage = entry.object(forKey: "featured_image") as? [[AnyHashable: Any]], featuredImage.count > 0  {
-                    if let url = featuredImage[0]["url"] as? String{
-                        product.featuredImage = url
-                    }
+                if let featuredImage = entry.fields?["featured_image"] as? [AssetModel], featuredImage.count > 0  {
+                    product.featuredImage = featuredImage[0].url
                 }
-                product.in_stock = entry.object(forKey: "in_stock") as? Bool ?? false
-                product.price = entry.object(forKey: "price") as? Double ?? 0
-                product.offetPrice = entry.object(forKey: "offer_price") as? Double ?? 0
+                product.in_stock = entry.fields?["in_stock"] as? Bool ?? false
+                product.price = entry.fields?["price"] as? Double ?? 0
+                product.offetPrice = entry.fields?["offer_price"] as? Double ?? 0
                 product.date = entry.updatedAt
-                print(product)
             }
             do {
                 try backgroundContext.save()

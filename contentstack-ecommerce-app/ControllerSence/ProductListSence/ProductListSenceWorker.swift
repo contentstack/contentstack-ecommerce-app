@@ -11,17 +11,24 @@
 //
 
 import UIKit
-import Contentstack
+import ContentstackSwift
 class ProductListSenceWorker
 {
-    func getProduct (request: ProductListSence.Products.Request, onCompletion: @escaping ((QueryResult?, Error?)-> (Swift.Void)))
+    func getProduct (request: ProductListSence.Products.Request, onCompletion: @escaping ((ContentstackResponse<EntryModel>?, Error?)-> (Swift.Void)))
     {
         let query = request.productQuery
         if let id = request.categoryID {
-            query.whereKey("categories", equalTo: id)
+           _ = query.where(valueAtKey: "categories", .equals(id))
         }
-        query.find { (responseType, queryResult, error) in
-            onCompletion(queryResult, error)
+        query.find { (result: Result<ContentstackResponse<EntryModel>, Error>, responseType) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    onCompletion(response, nil)
+                case .failure(let error):
+                    onCompletion(nil, error)
+                }
+            }
         }
     }
     

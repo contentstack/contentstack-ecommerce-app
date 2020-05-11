@@ -482,20 +482,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-contentstack-ecommerce-app/Pods-contentstack-ecommerce-app-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Contentstack/Contentstack.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-contentstack-ecommerce-app/Pods-contentstack-ecommerce-app-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Contentstack.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-contentstack-ecommerce-app/Pods-contentstack-ecommerce-app-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-contentstack-ecommerce-app/Pods-contentstack-ecommerce-app-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-contentstack-ecommerce-app/Pods-contentstack-ecommerce-app-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

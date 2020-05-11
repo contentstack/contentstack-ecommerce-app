@@ -7,14 +7,22 @@
 
 
 import UIKit
-import Contentstack
+import ContentstackSwift
 class SplashWorker
 {
-    func performCategoryFetch(request: Splash.Request, onCompletion: @escaping ((QueryResult?, Error?)-> (Swift.Void)))
+    func performCategoryFetch(request: Splash.Request, onCompletion: @escaping ((ContentstackResponse<EntryModel>?, Error?)-> (Swift.Void)))
     {
-        request.categoryQuery.includeReferenceField(withKey: ["navigation.category"])
-        request.categoryQuery.find { (responseType, queryResult, error) in
-            onCompletion(queryResult, error)
-        }
+        request.categoryQuery
+            .includeReference(with: ["navigation.category"])
+            .find { (result: Result<ContentstackResponse<EntryModel>, Error>, response: ResponseType) in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let response):
+                        onCompletion(response, nil)
+                    case .failure(let error):
+                        onCompletion(nil, error)
+                    }
+                }
+            }
     }
 }

@@ -14,7 +14,7 @@ enum Splash
  
     struct Request
     {
-            let categoryQuery = APIManger.stack.contentType(withName: "header").query()
+        let categoryQuery = APIManger.stack.contentType(uid: "header").entry().query()
     }
     struct Response
     {
