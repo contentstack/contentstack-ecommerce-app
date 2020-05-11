@@ -12,8 +12,12 @@ Contentstack is a headless CMS with an API-first approach that puts content at t
 **About this project**: 
 
 Create an E-Commerce app using Contentstack Swift SDK.
+https://github.com/contentstack/contentstack-ecommerce-app/raw/master/contentstack-ecommerce-app/Screenshot/screen1.png
 
-| ![](https://github.com/contentstack/contentstack-ios-conferenceapp/raw/master/Conferenceapp/Resource/SessionScreen.png) |  ![](https://github.com/contentstack/contentstack-ios-conferenceapp/raw/master/Conferenceapp/Resource/Schedulesession.png)|
+
+| ![](https://github.com/contentstack/contentstack-ecommerce-app/raw/master/contentstack-ecommerce-app/Screenshot/screen1.png) |  ![](https://github.com/contentstack/contentstack-ecommerce-app/raw/master/contentstack-ecommerce-app/Screenshot/screen2.png)|
+|--|--|
+| ![](https://github.com/contentstack/contentstack-ecommerce-app/raw/master/contentstack-ecommerce-app/Screenshot/screen3.png) | ![](https://github.com/contentstack/contentstack-ecommerce-app/raw/master/contentstack-ecommerce-app/Screenshot/screen4.png) |
 
 ## Tutorial
 
